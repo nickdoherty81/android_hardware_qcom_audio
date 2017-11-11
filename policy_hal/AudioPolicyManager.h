@@ -25,15 +25,11 @@
 
 namespace android {
 #ifndef AUDIO_EXTN_FORMATS_ENABLED
-#ifndef WMA_OFFLOAD_ENABLED
 #define AUDIO_FORMAT_WMA 0x12000000UL
 #define AUDIO_FORMAT_WMA_PRO 0x13000000UL
-#endif
 #define AUDIO_FORMAT_FLAC 0x1B000000UL
 #define AUDIO_FORMAT_ALAC 0x1C000000UL
-#ifndef APE_OFFLOAD_ENABLED
 #define AUDIO_FORMAT_APE 0x1D000000UL
-#endif
 #endif
 
 #define WMA_STD_NUM_FREQ     7
@@ -65,6 +61,9 @@ static uint32_t wmaStdMaxAvgByteRateTbl[WMA_STD_NUM_FREQ][WMA_STD_NUM_CHANNELS] 
     {256008, 256008}
 };
 
+#define MAX_BITRATE_WMA_PRO      1536000
+#define MAX_BITRATE_WMA_LOSSLESS 1152000
+
 #ifndef AAC_ADTS_OFFLOAD_ENABLED
 #define AUDIO_FORMAT_AAC_ADTS 0x1E000000UL
 #endif
@@ -73,9 +72,6 @@ static uint32_t wmaStdMaxAvgByteRateTbl[WMA_STD_NUM_FREQ][WMA_STD_NUM_CHANNELS] 
 #define AUDIO_DEVICE_OUT_PROXY 0x1000000
 #endif
 
-#define MAX_BITRATE_WMA          384000
-#define MAX_BITRATE_WMA_PRO      1536000
-#define MAX_BITRATE_WMA_LOSSLESS 1152000
 // ----------------------------------------------------------------------------
 
 class AudioPolicyManagerCustom: public AudioPolicyManager
